@@ -42,7 +42,8 @@ class AssetInstaller extends LibraryInstaller
         } else {
             $this->publicDir = $this->publicDirDefault;
         }
-        $this->vendorDir = $this->publicDir . '/' . $this->vendorDir;
+//        $this->vendorDir = $this->publicDir . '/' . $this->vendorDir;
+        $this->vendorDir = $this->publicDir;
     }
 
     /**
@@ -55,7 +56,7 @@ class AssetInstaller extends LibraryInstaller
 
     /**
      * setup package relative variables
-     * @param type $package
+     * @param PackageInterface $package
      */
     protected function setupPackageVars(PackageInterface $package)
     {

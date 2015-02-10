@@ -46,7 +46,7 @@ class AssetAwareInstaller extends LibraryInstaller
     /**
      * Flage to add or don't add target directory to public asset path
      * Package specified
-     * @var type
+     * @var string
      */
     protected $addTargetDir;
 
@@ -61,7 +61,8 @@ class AssetAwareInstaller extends LibraryInstaller
         } else {
             $this->publicDir = $this->publicDirDefault;
         }
-        $this->publicVendorDir = $this->publicDir . '/' . $this->vendorDir;
+//        $this->publicVendorDir = $this->publicDir . '/' . $this->vendorDir;
+        $this->publicVendorDir = $this->publicDir;
     }
 
     /**
@@ -74,7 +75,7 @@ class AssetAwareInstaller extends LibraryInstaller
 
     /**
      * setup package relative variables
-     * @param type $package
+     * @param PackageInterface $package
      */
     protected function setupPackageVars(PackageInterface $package)
     {
@@ -116,7 +117,7 @@ class AssetAwareInstaller extends LibraryInstaller
     }
 
     /**
-     * @param type $package
+     * @param PackageInterface $package
      * @return string name of link (like public/vendor/vendor-name/package-name
      */
     protected function getLinkName(PackageInterface $package)
@@ -150,7 +151,7 @@ class AssetAwareInstaller extends LibraryInstaller
      * Print warning if file wasn't copied
      * @param       string   $source    Source path
      * @param       string   $dest      Destination path
-     * @param       string   $permissions New folder creation permissions
+     * @param       integer  $permissions New folder creation permissions
      * @return      bool Returns true on success, false on failure
      */
     public function copy($source, $dest, $permissions = 0755)
